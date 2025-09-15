@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de recensement — UEST</title>
+    <!-- Bootstrap CSS -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384‑ENjdO4Dr2bkBIFxQpeoA7uXWPRf4i5udF0n3fwhXxC9Y1w9R+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+    >
+    <style>
+      body {
+        background-image: url("uest logo.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        /* Ajouter un overlay pour la lisibilité */
+      }
+      .form-bg {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 30px;
+      }
+    </style>
+</head>
+<body>
+  <div class="container d-flex justify-content-center">
+    <div class="col-lg-8 col-md-10 form-bg">
+      <h1 class="text-center"><strong>UEST</strong></h1>
+      <h2 class="text-center">Formulaire de recensement des étudiants sénégalais de Tokat</h2>
+      <p class="text-center">Veuillez ajouter vos informations s'il vous plaît</p>
+
+      <!-- Formulaire d'ajout -->
+      <form action="uest.php" method="POST" novalidate>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="prenom" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="prenom" name="prenom" maxlength="50" required>
+          </div>
+          <div class="col-md-6">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" maxlength="50" required>
+          </div>
+
+          <div class="col-md-6">
+            <label for="email" class="form-label">E‑mail</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="col-md-6">
+            <label for="numero" class="form-label">Numéro d’étudiant</label>
+            <input type="number" class="form-control" id="numero" name="numero" min="1" required>
+          </div>
+
+          <div class="col-md-6">
+            <label for="filiere" class="form-label">Filière d’étude</label>
+            <input type="text" class="form-control" id="filiere" name="filiere" maxlength="100" required>
+          </div>
+          <div class="col-md-6">
+            <label for="numero_tel" class="form-label">Numéro de téléphone</label>
+            <input type="tel" class="form-control" id="numero_tel" name="numero_tel" pattern="[0‑9]{8,15}" placeholder="Ex: 05551234567" required>
+            <div class="form-text">Entre 8 et 15 chiffres</div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="numero_pas" class="form-label">Numéro de passeport</label>
+            <input type="text" class="form-control" id="numero_pas" name="numero_pas" maxlength="20" required>
+          </div>
+          <div class="col-md-6">
+            <label for="numero_kim" class="form-label">Numéro de Kimlik</label>
+            <input type="number" class="form-control" id="numero_kim" name="numero_kim" min="0" required>
+          </div>
+
+          <div class="col-12">
+            <label for="adresse" class="form-label">Adresse</label>
+            <input type="text" class="form-control" id="adresse" name="adresse" maxlength="255" required>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">État financier</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="etat_f" id="boursier" value="boursier" required>
+              <label class="form-check-label" for="boursier">Boursier</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="etat_f" id="non_boursier" value="non_boursier" required>
+              <label class="form-check-label" for="non_boursier">Non‑boursier</label>
+            </div>
+          </div>
+
+          <div class="col-12 text-center">
+            <button type="submit" name="kaydet" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </div>
+      </form>
+
+      <hr class="my-5">
+
+    <!-- Formulaire de suppression -->
+    <h5 class="text-center">Supprimer un étudiant</h5>
+    <form action="uestdel.php" method="POST" novalidate>
+        <div class="row g-3 justify-content-center">
+        <div class="col-md-8">
+            <label for="email_delete" class="form-label">E‑mail à supprimer</label>
+            <input type="email" class="form-control" id="email_delete" name="email" required>
+        </div>
+        <div class="col-12 text-center">
+            <button type="submit" name="delete" class="btn btn-danger">Supprimer</button>
+        </div>
+        </div>
+    </form>
+
+    </div> <!-- fin form-bg -->
+</div> <!-- fin container -->
+
+<!-- Bootstrap JS (optionnel si tu veux des interactions) -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384‑qENZT+KkbwIp8WI+wTwarPInbq8lWxDh/wYfvEuqgRXZ3JbreygJm6ml/3w1iFzT"
+    crossorigin="anonymous"></script>
+</body>
+</html>
